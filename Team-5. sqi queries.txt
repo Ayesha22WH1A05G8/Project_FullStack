@@ -1,0 +1,199 @@
+create database ecommerce_cart;
+use ecommerce_cart;
+CREATE TABLE orders (
+  o_id int NOT NULL AUTO_INCREMENT,
+  p_id int NOT NULL,
+  u_id int NOT NULL,
+  o_quantity int NOT NULL,
+  o_date varchar(450) NOT NULL,
+  PRIMARY KEY (o_id)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO orders VALUES (25,3,1,3,'2021-05-15'),(26,2,1,1,'2021-05-15');
+
+CREATE TABLE products (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO products VALUES (1,'Heart Pendants','Jewellery',549,'a1.webp'),
+(2,'ClipOn Earrings','Jewellery',899,'a2.webp'),
+(3,'Eye Catching Earring','Jewellery',699,'a3.avif'),
+(4,'Drop Earring','Jewellery',649,'a4.webp'),
+(5,'Expensive Bracelet','Jewellery',1199,'a5.webp'),
+(6,'Golden Beads Personalized Photo Ear Rings','Jewellery',549,'a6.webp'),
+(7,'Roseheart Necklace','Jewellery',749,'a7.webp'),
+(8,'Green Pearl Necklace Set','Jewellery',649,'a8.avif');
+
+CREATE TABLE users (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(250) NOT NULL,
+  email varchar(250) NOT NULL,
+  password varchar(250) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email_UNIQUE (email)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO users VALUES (1,'Almamun','almamun@mail.com','123456');
+
+select *from ecommerce_cart.users;
+select *from ecommerce_cart.products;
+select *from ecommerce_cart.orders;
+
+CREATE TABLE softtoys (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO softtoys VALUES (1,'Two Layers Lucky Bamboo Love With Teddy Bear','Softtoys',900,'t1.avif')
+,(2,'Romantic Treasures Of Teddy With Ferrero Rocher','Softtoys',699,'t2.avif'),
+(3,'Wonderful Pink Roses Display','Softtoys',799,'t3.webp'),
+(4,'Attractive Personalized Teddy Bea','Softtoys',599,'t4.avif'),
+(5,'Blessful Combo','Softtoys',1559,'t5.avif')
+,(6,'Cute Cuddly Love','Softtoys',500,'t6.webp'),
+(7,'Golden Elegance With Teddy And Chocolates','Softtoys',450,'t7.avif'),
+(8,'Cadbury Treats With Cute Teddy','Softtoys',599,'t8.avif');
+
+select *from softtoys; 
+
+
+CREATE TABLE Best (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO Best VALUES (1,'bottle','best seller gifts',12,'bottle.jpg')
+,(2,'greeting card','best seller gifts',15,'greetingcard.jpg'),
+(3,'cushion','best seller gifts',100,'cushion.jpg'),
+(4,'heart pendant','best seller gifts',200,'heartpendant.jpg'),
+(5,'lamp','best seller gifts',150,'LEDlamp.jpg')
+,(6,'clock','best seller gifts',50,'magicalclockLED.jpg'),
+(7,'photo frame','best seller gifts',70,'photoframe.jpg'),
+(8,'photo mug','best seller gifts',75,'photomug.jpg');
+select * from Best;
+
+
+
+
+create TABLE   Decor(
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO   Decor VALUES (1,'Rose Fragrance Candle','Candles and Diffusers',899,'d1.webp')
+,(2,'Hexagonal Shape Diffuser','Candles and Diffusers',699,'d2.webp'),
+(3,'Lavender Fragrance Candles','Candles and Diffusers',899,'d3.avif'),
+(4,'Milky White Ceramic Diffuser','Candles and Diffusers',399,'d4.webp'),
+(5,'Invert Black Electric Buddha Diffuser','Candles and Diffusers',999,'d5.avif')
+,(6,'Scentsational Jasmine','Candles and Diffusers',799,'d6.webp'),
+(7,'White Ceramic Diffuser with Burner','Candles and Diffusers',899,'d7.avif'),
+(8,'Wooden Ceramic Diffuser','Candles and Diffusers',599,'d8.jpg');
+
+
+
+
+
+
+CREATE TABLE Hampers (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO Hampers VALUES (1,'Upcycled Luxe And Flavorsome Gifts Hamper','Gift Hampers',2899,'ha1.webp'),
+(2,'Love Celebration Hamper','Gift Hamperss',4799,'ha2.avif'),
+(3,'Nutty Chocolate Surprise Hamper','Gift Hamperss', 3299,'ha3.jpeg'),
+(4,'Passionate Pleasures Valentines Hamper','Gift Hampers', 2049,'ha4.avif'),
+(5,'Womens Day Chocolate Bliss Set','Gift Hampers',2199,'ha5.avif'),
+(6,'Yardley Black And Gold Kit For Men','Gift Hampers',2599,'ha6.avif'),
+(7,'Imported Treat Surprise Hamper','Gift Hampers',5099,'ha7.jpeg'),
+(8,'lifting Moment','Gift Hampers',9549,'ha8.webp');
+
+select *from Hampers;
+
+CREATE TABLE chocolates (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO chocolates VALUES (1,'Two Layer Assorted Chocolate Arrangement','Chocolates',1099,'choco1.jpg')
+,(2,'Artisanal Almond Milk Chocolate Bar','Chocolates',749,'choco2.jpg'),
+(3,'Hexagonal Love Affair Chocolates','Chocolates',1099,'choco3.jpg'),
+(4,'Classic Chocolate Truffles Joy Box Of 12','Chocolates',699,'choco4.jpg'),
+(5,'Truffle Chocolate 24 Pcs','Chocolates',799,'choco5.jpg')
+,(6,'Dairy Milk Chocolate Basket','Chocolates',849,'choco6.jpg'),
+(7,'Enchanting Floral Delights Collection','Chocolates',2249,'choco7.jpg'),
+(8,'Dark Chocolate Bar Set Of 2','Chocolates',599,'choco8.jpg');
+
+
+
+
+
+CREATE TABLE Kids (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(450) NOT NULL,
+  category varchar(450) NOT NULL,
+  price double NOT NULL,
+  image varchar(450) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+insert into Kids values
+     (1,'Customized oil painting','Painting',1299,'k1.jpg'),
+     (2,'Mom And Me Magic Mirror','Mirror',649,'k2.jpg'),
+     (3,'Cherished Moments Photo Album','Album',1499,'k3.jpg'),
+     (4,'Pyaare Papa Frame','Frame',699,'k4.jpg'),
+     (5,'Patners In Crime Personalized Wall Frame','Frame',1099,'k5.jpg'),
+     (6,'Batman Fondant Cake','Cake',1799,'k6.jpg'),
+     (7,'Fashionable Spotify Key Chain Gift','Accessories',299,'k7.jpg'),
+     (8,'Attractive Personalized Teddy Bear','Soft Toys',399,'k8.jpg');
+     
+     
+     
+     
+     
+     
+     CREATE TABLE Husband (
+       id int NOT NULL AUTO_INCREMENT,
+       name varchar(450) NOT NULL,
+       category varchar(450) NOT NULL,
+       price double NOT NULL,
+    	image varchar(450) NOT NULL,
+       PRIMARY KEY (id)
+     ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+Insert into Husband values
+     (1,'Customized Photo Mug','Mug',249,'hu1.webp'),
+     (2,'Radiant Colors Personalized Temperature Bottle','Bottle',799,'hu2.avif'),
+     (3,'Assorted Chocolates Bar Gift Box','Chocolate',699,'hu3.avif'),
+     (4,'Lyrics Photo Frame','Photo Frame',1149,'hu4.webp'),
+     (5,'Mouth Melting Chocolate Cake','Cake',579,'hu5.avif'),
+     (6,'Never Ending Love Roses Arragement','Flowers',849,'hu6.avif'),
+     (7,'Personalized Black Mens Wallet','Accessories',449,'hu7.avif'),
+     (8,'Unique Personalized Greeting Card','Card',349,'hu8.avif');
+     
