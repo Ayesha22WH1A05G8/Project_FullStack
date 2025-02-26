@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All gifts</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="Home.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="shortcut icon" href="lo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <style>
+            /* Pop-up styling */
+            .popup {
+                display: none;
+                position: absolute;
+                top: 170px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 1250px;
+                background-color: #fff;
+                box-shadow: 0 5px 15px rgba(0,0,0,.5);
+                z-index: 1000;
+                padding: 20px;
+                border-radius: 0%;
+            }
+            .popup .container {
+                display: flex;
+                justify-content: space-between;
+            }
+            .popup .column {
+                flex: 1;
+                margin-right: 20px;
+            }
+            .popup .column:last-child {
+                margin-right: 0;
+            }
+            .popup .column ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .popup .column ul li {
+                margin: 10px 0;
+            }
+            .popup .column ul li a {
+                text-decoration: none;
+                color: #333;
+            }
+            .popup .menu ul li a {
+                color: black;
+            }
+            .popup .featured ul li a {
+                color: black;
+            }
+            .popup .recipient ul li a {
+                color: black;
+            }
+            .popup .occasion ul li a {
+                color: black;
+            }
+            .popup .column-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            .popup .images {
+                display: flex;
+                flex-direction: column;
+                margin-left: 20px;
+            }
+            .popup .images img {
+                width: 70%;
+                max-width: 300px;
+                height: auto;
+                margin-bottom: 20px;
+                border-radius: 10px;
+            }
+        </style>
+        <style>
+            .filters {
+                display: flex;
+                align-items: center;
+            }
+            .filters select,
+            .filters label {
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="navbar main-navbar">
+        <div class="container">
+            <div class="top-nav text-right">
+                <span>
+                    <a href="#">Help</a> | Currency - <strong>INR</strong> | 
+                    <a href="#">Corporate Gifts</a> | <a href="#">Partner With Us</a> | 
+                    <a href="#">Track Order</a>
+                </span>
+            </div>
+            <div class="row align-items-center text-center">
+                <div class="col-md-3 logo">
+                    <a href="Home.html"><img src="aa.jpg" alt="Logo" width="160px"></a>
+                </div><br>
+                <div class="col-md-6 search-bar">
+                    <form action="/search" method="get" class="form-inline">
+                        <input type="text" name="query" placeholder="Search for gifts" class="form-control" id="search-input">
+                        <datalist id="gift-options">
+                            <a href="index.jsp"><option value="Jwellery"></option></a>
+                            <a href="softtoy.jsp"><option value="Soft Toy"></option></a>
+                            <a href="Decor.jsp"><option value="Candles"></option></a>
+                            <a href="Best.jsp"><option value="Best-Seller"></option></a>
+                        </datalist>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        <button type="button" class="btn btn-default location-btn"><span class="glyphicon glyphicon-map-marker"></span> <a href="location.html">Delivery Location ></a></button>
+                    </form>
+                </div>
+                <div class="col-md-3 icon-bar">
+                    <a href="login.jsp"><img src="user1.jpg" alt="User Icon" class="nav-icon"></a>
+                    <a href="#"><img src="heart.jpg" alt="Wishlist Icon" class="nav-icon"></a>
+                    <a href="cart.jsp"><img src="cart.png" alt="Cart Icon" class="nav-icon"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar categories-navbar">
+        <div class="container text-center">
+            <ul class="nav navbar-nav main-nav">
+                <li><a href="#">EXPRESS</a></li>
+                <li><a href="#">CAKES</a></li>
+                <li><a href="#">FLOWERS</a></li>
+                <li><a href="#">PLANTS</a></li>
+                <li class="active" id="gifts-category"><a href="#">GIFTS</a></li>
+                <li><a href="#">PERSONALIZED GIFTS</a></li>
+                <li><a href="#">CHOCOLATES</a></li>
+                <li><a href="#">COMBOS</a></li>
+                <li><a href="#">BIRTHDAY</a></li>
+                <li><a href="#">ANNIVERSARY</a></li>
+                <li><a href="#">OCCASIONS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="banner">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="back_ground1.jpg" alt="Banner Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="back_ground2.jpg" alt="Banner Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="back_ground3.jpg" alt="Banner Image 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="back_ground4.jpg" alt="Banner Image 4">
+                    </div>
+                </div>
+                <button class="prev" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="next" onclick="plusDivs(1)">&#10095;</button>
+            </div>
+        </section>
+        <div class="categories">
+            <div class="category">
+                <a href="Best.jsp"><img src="c1.jpg " alt="c1"></a>
+                <p>Best Seller Gifts</p>
+            </div>
+            <div class="category">
+                <img src="c2.jpg" alt="c2">
+                <p>Home Decor</p>
+            </div>
+            <div class="category">
+                <a href="index.jsp"><img src="c3.jpg" alt="c3"></a>
+                <p>Jewellery</p>
+            </div>
+            <div class="category">
+                <img src="c4.jpg" alt="c4">
+                <p>Perfumes & Fragrances</p>
+            </div>
+            <div class="category">
+                <a href="Hampers.jsp"><img src="c5.jpg" alt="c5"></a>
+                <p>Gift Basket</p>
+            </div>
+            <div class="category">
+               <a href="softtoy.jsp"> <img src="c6.jpg" alt="c6"></a>
+                <p>Soft Toys</p>
+            </div>
+            <div class="category">
+                <img src="c7.jpg" alt="c7">
+                <p>Handbags & Wallets</p>
+            </div>
+            <div class="category">
+                <img src="c8.jpg" alt="c8">
+                <p>Idols & Figurines</p>
+            </div>
+            <div class="category">
+                <a href="Decor.jsp"><img src="c9.jpg" alt="c9"></a>
+                <p>Diffuser & Candles</p>
+            </div>
+            <div class="category">
+                <img src="c10.jpg" alt="c10">
+                <p>Greeting Cards</p>
+            </div>
+            <div class="category">
+                <img src="c11.webp" alt="Combos">
+                <p>Combos</p>
+            </div>
+            <div class="category">
+                <img src="c12.avif" alt="Plants">
+                <p>Plants</p>
+            </div>
+            <div class="category">
+                <a href="chocolates.jsp"><img src="c13.avif" alt="Chocolates"></a>
+                <p>Chocolates</p>
+            </div>
+            <div class="category">
+                <a href="Best.jsp"><img src="c14.avif" alt="Gifts"></a>
+                <p>Gifts</p>
+            </div>
+            <div class="category">
+                <a href="Husband.jsp"><img src="c15.avif" alt="Husband"></a>
+                <p>Husband</p>
+            </div>
+            <div class="category">
+                <img src="c16.webp" alt="Crystal Gifts">
+                <p>Crystal Gifts</p>
+            </div>
+        </div>
+    </main>
+    <div id="popup" class="popup">
+        <div class="container">
+            <div class="column menu">
+                <div class="column-title">Gifts</div>
+                <ul>
+                    <li><a href="Best.jsp">Best Seller Gifts</a></li>
+                    <li><a href="#">Home Decor</a></li>
+                    <li><a href="index.jsp">Jewellery</a></li>
+                    <li><a href="#">Perfumes & Fragrances</a></li>
+                    <li><a href="Hampers.jsp">Gift Basket</a></li>
+                    <li><a href="softtoy.jsp">Soft Toys</a></li>
+                    <li><a href="#">Handbags & Wallets</a></li>
+                    <li><a href="#">Idols And Figurines</a></li>
+                    <li><a href="Decor.jsp">Diffusers & Candles</a></li>
+                    <li><a href="GreetingCards.html">Greeting Cards</a></li>
+                </ul>
+            </div>
+            <div class="column featured">
+                <div class="column-title">Featured Gifts</div>
+                <ul>
+                    <li><a href="New Arrival.html">New Arrival</a></li>
+                    <li><a href="Hampers.jsp">Gifts Hampers</a></li>
+                    <li><a href="#">Sweets</a></li>
+                    <li><a href="#">Dryfruits</a></li>
+                    <li><a href="chocolates.jsp">Chocolates</a></li>
+                </ul>
+            </div>
+            <div class="column recipient">
+                <div class="column-title">By Recipient</div>
+                <ul>
+                    <li><a href="#">For Her</a></li>
+                    <li><a href="#">For Him</a></li>
+                    <li><a href="Husband.jsp">For Husband</a></li>
+                    <li><a href="#">For Wife</a></li>
+                    <li><a href="Kids.jsp">For Kids</a></li>
+                    <li><a href="#">For Couples</a></li>
+                </ul>
+            </div>
+            <div class="column occasion">
+                <div class="column-title">By Occasions</div>
+                <ul>
+                    <li><a href="#">Birthday Gifts</a></li>
+                    <li><a href="#">Anniversary</a></li>
+                    <li><a href="#">Wedding Gifts</a></li>
+                    <li><a href="#">Love & Romance</a></li>
+                </ul>
+            </div>
+            <div class="images">
+                <img src="gift-hampers.avif" alt="Gift Hampers">
+                <img src="all-gifts.avif" alt="All Gifts">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("carousel-item");
+            if (n >= x.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = x.length - 1 }
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.remove("active");
+            }
+            x[slideIndex].classList.add("active");
+        }
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("carousel-item");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].classList.add("active");
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showDivs(slideIndex);
+        });
+    </script>
+    <script>
+        function toggleHeart(element) {
+            element.classList.toggle('active');
+        }
+    $(document).ready(function(){
+        $('.input-group.date').datepicker({
+            format: 'dd-mm-yyyy', // Adjust the date format as per your preference
+            autoclose: true
+        });
+    });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#gifts-category").hover(function () {
+                $("#popup-menu").toggle();
+            });
+    
+            $('#search-input').on('focus', function () {
+                $(this).attr('list', 'gift-options');
+            }).on('blur', function () {
+                setTimeout(() => { $(this).removeAttr('list'); }, 100); // Delay to allow click on datalist options
+            });
+        });
+    </script>
+    <script>
+        
+        // Show the pop-up when the "GIFTS" tab is hovered over
+        document.getElementById('gifts-category').addEventListener('mouseover', function () {
+            document.getElementById('popup').style.display = 'block';
+        });
+
+        // Hide the pop-up when the mouse leaves the pop-up
+        document.getElementById('popup').addEventListener('mouseleave', function () {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        // Toggle wishlist heart icon
+        function toggleHeart(element) {
+            if (element.innerHTML === '♡') {
+                element.innerHTML = '♥';
+                element.style.color = 'red';
+            } else {
+                element.innerHTML = '♡';
+                element.style.color = 'black';
+            }
+        }
+    </script>
+</body>
+</html>
